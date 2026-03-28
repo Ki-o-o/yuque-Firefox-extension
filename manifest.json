@@ -1,0 +1,173 @@
+{
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "yuque-browser-plugin@antgroup.com",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "icons": {
+    "16": "icon16.plasmo.26020647.png",
+    "32": "icon32.plasmo.6b45357b.png",
+    "48": "icon48.plasmo.807be196.png",
+    "64": "icon64.plasmo.4b24a360.png",
+    "128": "icon128.plasmo.6e43d482.png"
+  },
+  "manifest_version": 3,
+  "action": {
+    "default_icon": {
+      "16": "icon16.plasmo.26020647.png",
+      "32": "icon32.plasmo.6b45357b.png",
+      "48": "icon48.plasmo.807be196.png",
+      "64": "icon64.plasmo.4b24a360.png",
+      "128": "icon128.plasmo.6e43d482.png"
+    }
+  },
+  "version": "2.0.5",
+  "author": "cwg343076@antgroup.com",
+  "name": "语雀浏览器插件",
+  "description": "语雀浏览器知识管理插件，支持剪藏页面文本和图片，截图OCR识别文字，可划词剪藏、翻译，侧边栏写笔记，并存到语雀。",
+  "homepage_url": "https://www.yuque.com",
+  "background": {
+    "scripts": ["firefox-polyfill.js", "static/background/index.js"]
+  },
+
+  "sidebar_action": {
+    "default_panel": "tabs/sandbox.html",
+    "default_icon": {
+      "16": "icon16.plasmo.26020647.png",
+      "32": "icon32.plasmo.6b45357b.png",
+      "48": "icon48.plasmo.807be196.png",
+      "64": "icon64.plasmo.4b24a360.png",
+      "128": "icon128.plasmo.6e43d482.png"
+    },
+    "default_title": "语雀"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab",
+    "cookies",
+    "webRequest",
+    "contextMenus",
+    "declarativeNetRequest"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "firefox-content-polyfill.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-app.87739400.js"
+      ],
+      "run_at": "document_idle",
+      "css": [
+        "content-app.00de3275.css"
+      ]
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "context-menu.175d24e9.js"
+      ],
+      "css": []
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "overlay-app.a6405488.js"
+      ],
+      "css": []
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "app.d8f06386.js"
+      ],
+      "css": []
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "user-selection.2575c452.js"
+      ],
+      "run_at": "document_idle",
+      "css": []
+    }
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "<all_urls>"
+  ],
+  "commands": {
+    "open_sidepanel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Open sidepanel"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Period",
+        "mac": "Command+Period"
+      }
+    },
+    "selectArea": {
+      "description": "选取剪藏"
+    },
+    "startOcr": {
+      "description": "OCR 提取"
+    },
+    "clipPage": {
+      "description": "全文剪藏"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content-app.*.css",
+        "content-app.*.js",
+        "user-selection.*.css",
+        "user-selection.*.js",
+        "context-menu.*.css",
+        "context-menu.*.js",
+        "inject-script.*.js",
+        "adapter.*.js",
+        "esm-19.*.js",
+        "esm-19.*.css",
+        "app.*.css",
+        "lakex/*.*",
+        "tabs/sandbox.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

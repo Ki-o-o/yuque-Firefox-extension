@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><style>
+/* Fix 1: Prevent double scrollbar — constrain layout to 100% height */
+html, body {
+  overflow: hidden !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#__plasmo {
+  height: 100% !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+#qingai-extension-app-container {
+  height: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+#qingai-extension-app-container > div {
+  height: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+/* Only target the CONTENT wrapper (not the fixed-position menu button).
+   The content wrapper has "contents" display from styled-components;
+   the menu button has position:fixed. Exclude fixed-position elements. */
+#qingai-extension-app-container > div > div:not([style*="position: fixed"]):not([style*="position:fixed"]) {
+  height: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+</style><link rel="stylesheet" href="/tabs/sandbox.2a290af7.css"><link rel="stylesheet" href="/tabs/sandbox.3a2d9c6d.css"><script src="/firefox-sidebar-polyfill.js"></script><script src="/esm-19.part1.66294edf.js"></script><script src="/user.7868b395.js"></script><title></title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body> <div id="__plasmo"></div> <script src="/tabs/sandbox.61cac5db.js" defer></script> </body></html>

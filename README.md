@@ -2,7 +2,9 @@
 
 本项目基于 [语雀 Chrome/Edge 浏览器插件](https://github.com/yuque/yuque-chrome-extension) v2.0.5 版本进行 Firefox 适配。原版插件使用 Chrome Manifest V3 构建，依赖大量 Chrome/Edge 独有的 API（如 `service_worker`、`sidePanel`、`offscreen` 等）。本适配通过编写三层 polyfill 脚本，在不修改任何编译后业务代码的前提下，使插件在 Firefox 浏览器中完整运行。
 
-## 功能完整性
+> 由于个人不常使用语雀插件的**指令、助手等功能**，暂时未能将这些功能进行完善，这些功能暂不可用
+
+## 基础功能完整性
 
 | 功能 | Edge 原版 | Firefox 适配版 | 说明 |
 |------|-----------|----------------|------|
@@ -393,7 +395,7 @@ cd /path/to/yuque_code
 web-ext run
 
 # 打包为 .zip
-web-ext build --ignore-files="yuque.2.0.5_edge/**" --ignore-files=".claude/**"
+web-ext build --ignore-files="yuque.2.0.5_edge/**"
 ```
 
 ### 使用说明

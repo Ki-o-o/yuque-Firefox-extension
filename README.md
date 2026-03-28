@@ -367,14 +367,20 @@ chrome.runtime.getURL = function (path) {
 
 ### 方式二：打包为 .xpi 安装（持久安装）
 
-1. 将项目目录中的所有文件（**不包括** `yuque.2.0.5_edge/` 目录和 `.claude/` 目录）打包为 `.zip` 文件
+1. 将项目目录中的所有文件（**不包括** 不必要的目录）打包为 `.zip` 文件
 2. 将 `.zip` 后缀名改为 `.xpi`
 3. 在 Firefox 中打开 `about:addons`，点击齿轮图标 → "从文件安装附加组件..."
 4. 选择 `.xpi` 文件安装
 
 > **注意**：未签名的 .xpi 只能在 Firefox Developer Edition 或 Nightly 版本中安装。正式版 Firefox 要求扩展经过 [Mozilla AMO](https://addons.mozilla.org/) 签名。如需在正式版中使用，可以：
+>
 > - 使用 `about:config` 将 `xpinstall.signatures.required` 设为 `false`（仅 Developer Edition / Nightly 有效）
 > - 或通过 [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) 工具签名：`web-ext sign --api-key=YOUR_KEY --api-secret=YOUR_SECRET`
+
+> 使用编辑好的脚本进行打包经过 [Mozilla AMO](https://addons.mozilla.org/) 签名，参考：
+>
+> 1.  使用 `pack_extension.ps1` 自动打包到上级目录 `yuque-firefox-extension.xpi`
+> 2. 提交该插件到 https://addons.mozilla.org/zh-CN/developers/ 中进行签名（需要上传源码包审核，使用 `pack_submit.ps1` 自动打包并上传）
 
 ### 方式三：使用 web-ext 工具
 
